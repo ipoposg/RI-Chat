@@ -1,0 +1,51 @@
+{% from "_formhelpers.html" import render_field %}
+{% extends "bootstrap/base.html" %}
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="{{url_for('static', filename='styles.css')}}">
+
+{% endblock %}
+{% block navbar %}
+  <div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}      
+        {% for category, message in messages %}
+        <div class="alert alert-{{category}}" role="alert">
+          <p>{{ message }}</p>    
+        </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <div>
+      <img src="static/assets/ri.png" height="100">
+      <h2>Login to RIChat</h2>
+      
+    </div>
+
+  </div>
+{% endblock %}
+{% block content%}
+<br>
+
+<br>
+<div id="signin">
+   <form class="form-signin" novalidate method="POST">
+    {{form.hidden_tag()}}
+  
+    {{ render_field(form.username, class="form-control") }}
+    {{ render_field(form.password, class="form-control") }}
+
+    <div class="form-group form-check">
+      {{ form.remember_me(class="form-check-input") }}
+      {{ form.remember_me.label(class="form-check-label") }}
+    </div>
+  
+    {{ form.submit(class="btn btn-primary") }} 
+  </form>
+  <img src = "static/assets/mark.jpg" class="center">
+</div>
+{% endblock%}
+
+

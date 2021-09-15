@@ -1,0 +1,45 @@
+{% extends "template2.html" %} 
+{% block title %} 
+Request a New Group 
+{% endblock %} 
+
+{%block heading%}
+<!--Not on web page, on Page Title in web broswer-->
+<h1> Request a New Group </h1>
+<br>
+{%endblock%} 
+
+{%block body%}
+      
+<form action="{{ url_for('newgrp') }}" method="POST">
+	<table>
+		<tr>
+	  <th>Username</th>
+          <tr>
+          <td>
+            <input name="Username" type="text" placeholder="Enter your Username">
+            </td>
+          </tr>
+				<tr>
+      <th>Group Name</th>
+          <tr>
+          <td>
+            <input name="Group Name" type="text" placeholder="Name of Group">
+            </td>
+          </tr>
+				<tr>
+      <th>Group Description</th>
+          <tr>
+          <td>
+            <input name="Group Description" type="text" placeholder="Group Description">
+            </td>
+          </tr>
+          
+        </tr>
+      </table>
+      <!--POSTS user's responses-->
+      <br>
+      <input type="submit">
+  </form>
+<br>
+{%endblock%}

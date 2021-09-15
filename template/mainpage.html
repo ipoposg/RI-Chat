@@ -1,0 +1,61 @@
+{% extends "bootstrap/base.html" %}
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="{{url_for('static', filename='styles.css')}}">
+
+{% endblock %}
+{% block navbar %}
+  <div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}      
+        {% for category, message in messages %}
+        <div class="alert alert-{{category}}" role="alert">
+          <p>{{ message }}</p>    
+        </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <div>
+      Welcome to the app:
+      <a href="/">Home</a>  
+      <a href="{{ url_for('login') }}">Login</a>
+      <a href="{{ url_for('logout') }}">Logout</a>
+      
+    </div>
+
+  </div>
+{% endblock %}
+{% block heading %} 
+RIChat
+{% endblock %} 
+
+{% block body %}
+
+<img src="static/assets/chat.png" height = "70" style = "padding-left: 9px;  padding-top = 14px;" >
+
+<h2> RIChat - The only platform for all your conversations </h2>
+
+<aside>
+<img src="static/assets/thinking.jpg" width="400" alt= "provoking image" style = "float:right; padding-right: 100px;" >
+</aside>
+
+<p class="thick"><a href="{{ url_for('login') }}"> Login here </a></p>
+<p class="thick"><a href="{{ url_for('signup') }}"> Sign up here</a></p>
+<p class="thick"><a href="{{ url_for('contactus') }}">Contact us </a></p>
+
+
+
+
+
+
+<p> We would never use or sell your data to advertisers. </p>
+
+
+
+<p>“A conversation is a dialogue, not a monologue.</p>
+<p> That's why there are so few good conversations: due to scarcity, two intelligent talkers seldom meet.”
+― Truman Capote </p>
+
+{% endblock %}

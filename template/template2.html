@@ -1,0 +1,22 @@
+<html>
+<head>
+  <!--Loads the CSS file-->
+	<link rel="stylesheet" href="{{ url_for('static', filename='404.css') }}">
+  <title>{% block title %} Default title {% endblock %}</title>
+  <!--Loads the page icon-->
+  <link rel="shortcut icon" href="static/assets/favicon.ico">
+</head>
+<body>
+  <div id="container">
+    {% block heading %}
+    <h1> Default Heading </h1>
+    
+    {% endblock %}
+
+    {% block body %}
+    No content
+    
+    {% endblock %}
+    
+  </body>
+</html>
